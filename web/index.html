@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f8fa">
+  <title>Weather Studio — Ask. Explore. Plan.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+  <script type="module" src="/static/app.js"></script>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <a href="/" class="brand"><span class="brand-mark">◒</span> Weather Studio<span class="beta">LAB</span></a>
+    <p class="sidebar-label">YOUR WEATHER, UNDERSTOOD</p>
+    <button class="nav-item active" aria-current="page"><span>✦</span> Weather assistant</button>
+    <button id="reset" class="nav-item"><span>＋</span> New conversation</button>
+    <div class="sidebar-bottom"><div class="orbit">◌</div><h3>A little clarity<br>for your day.</h3><p>Ask naturally. Explore the forecast.<br>Make your next plan.</p><div class="provider"><span class="status-dot"></span> Weather by Open-Meteo</div></div>
+  </aside>
+  <main>
+    <header class="topbar"><span>Workspace <span class="slash">/</span> <strong>Weather assistant</strong></span><label class="demo-toggle"><input id="demo" type="checkbox"> Demo mode</label></header>
+    <section class="intro">
+      <div class="eyebrow"><span class="status-dot"></span> A FORECAST THAT MAKES SENSE</div>
+      <h1>What’s on your horizon?</h1>
+      <p>From a quick temperature check to your weekend plans.<br>Just ask, and we’ll bring the weather into focus.</p>
+    </section>
+    <section id="welcome" class="welcome" aria-label="Ways to explore">
+      <div class="welcome-heading"><h2>A good place to start</h2><span>ONE QUESTION. A CLEARER PICTURE.</span></div>
+      <div class="suggestions">
+        <button class="suggestion" data-query="What's the current weather in Hyderabad, India?"><span class="tile-icon sun">☀</span><h3>Step outside</h3><p>What’s the weather in<br>Hyderabad right now?</p><span class="tile-arrow">↗</span></button>
+        <button class="suggestion" data-query="Show the next 5 days of weather in Hyderabad, India"><span class="tile-icon rain">☂</span><h3>Plan ahead</h3><p>Show me the next five<br>days in Hyderabad.</p><span class="tile-arrow">↗</span></button>
+        <button class="suggestion" data-query="Compare current weather in Hyderabad, India and Bengaluru, India"><span class="tile-icon compare">⇄</span><h3>Find your sunshine</h3><p>Compare Hyderabad<br>and Bengaluru.</p><span class="tile-arrow">↗</span></button>
+      </div>
+      <div class="hint"><span>✧</span><p><strong>More than numbers.</strong> Get a useful answer, with weather cards that help you see the whole picture.</p></div>
+    </section>
+    <section id="conversation" aria-label="Conversation"></section>
+    <div id="progress" class="progress" role="status" hidden><span class="spinner"></span><span id="progress-text">Understanding your question…</span></div>
+    <div id="error" role="alert" hidden></div>
+    <div class="composer-wrap">
+      <form id="form" class="composer">
+        <span class="composer-spark" aria-hidden="true">✦</span>
+        <label class="sr-only" for="question">Ask a weather question</label>
+        <textarea id="question" rows="1" maxlength="4000" placeholder="Ask about the weather, anywhere…" required></textarea>
+        <button type="submit" id="send" aria-label="Send question">↑</button>
+      </form>
+      <div class="composer-footer"><span><kbd>↵</kbd> to send <span class="footer-divider">·</span> Shift + Enter for a new line</span><span>AI can make mistakes. Check important forecasts.</span></div>
+    </div>
+    <footer class="page-footer">A little intelligence. A better outlook. <span>✦</span></footer>
+  </main>
+</div>
+</body>
+</html>

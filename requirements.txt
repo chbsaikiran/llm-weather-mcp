@@ -9,3 +9,7 @@ openai>=1.68,<3
 
 # Load local API credentials and model configuration from .env
 python-dotenv>=1,<2
+
+# Local browser UI and server-sent agent events
+fastapi>=0.115,<1
+uvicorn>=0.30,<1

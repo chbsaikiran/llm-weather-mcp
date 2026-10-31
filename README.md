@@ -28,6 +28,20 @@ python -m pip install -r requirements.txt
 
 ## Chat with an OpenAI model
 
+### Prefer a browser interface?
+
+Run `python web_app.py` after installing requirements, then open
+**http://127.0.0.1:8000**. Weather Studio provides Material Web controls,
+weather cards, forecasts, city comparisons, and progressive agent events.
+Use **Demo mode** for labeled illustrative data without API calls, or configure
+`.env` to ask real questions. See [WEB_UI_GUIDE.md](WEB_UI_GUIDE.md) for setup,
+architecture, and the supported A2UI / AG-UI subsets.
+
+For interview preparation, read [A2UI_AGUI_INTERVIEW_GUIDE.md](A2UI_AGUI_INTERVIEW_GUIDE.md)
+for protocol concepts, code walkthroughs, example messages, and practice Q&A.
+
+### Terminal chat
+
 Run `python -m pip install -r requirements.txt` after activating the virtual
 environment. Copy `.env.example` to `.env` and set your own `OPENAI_API_KEY`.
 `OPENAI_MODEL` defaults to `gpt-4.1-mini`; change it to a Responses API model

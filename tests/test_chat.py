@@ -16,10 +16,12 @@ class ChatTests(unittest.IsolatedAsyncioTestCase):
         ])))
         result = Mock()
         result.model_dump_json.return_value = '{"conditions":"Clear sky"}'
+        result.model_dump.return_value = {"structuredContent": {"conditions": "Clear sky"}}
         session = SimpleNamespace(call_tool=AsyncMock(return_value=result))
         history = [{"role": "user", "content": "Earlier question"}]
         tools = [{"name": "get_current_weather"}]
-        text = await answer(client, session, tools, history, "Weather?", "test-model")
+        emit = AsyncMock()
+        text = await answer(client, session, tools, history, "Weather?", "test-model", emit=emit)
         self.assertEqual(text, "It is sunny.")
         session.call_tool.assert_awaited_once_with(
             "get_current_weather", arguments={"city": "Hyderabad"})
@@ -28,6 +30,10 @@ class ChatTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(sent["input"][3]["call_id"], "call_1")
         self.assertFalse(sent["store"])
         self.assertEqual(history[-1], final)
+        self.assertEqual([call.args[0] for call in emit.await_args_list],
+                         ["tool_start", "tool_result", "tool_end"])
+        self.assertEqual(emit.await_args_list[1].args[1]["result"],
+                         result.model_dump.return_value)
 
     async def test_failed_turn_does_not_change_history(self):
         client = SimpleNamespace(responses=SimpleNamespace(
