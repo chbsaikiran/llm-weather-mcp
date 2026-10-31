@@ -61,7 +61,7 @@ sequenceDiagram
     participant S as server.py / FastMCP
     participant W as Open-Meteo
 
-    C->>S: Start subprocess; initialize MCP session
+    C->>S: Start subprocess and initialize MCP session
     C->>S: List tools
     S-->>C: Names, descriptions, input schemas
     Note over C: Convert MCP tools into OpenAI function definitions
