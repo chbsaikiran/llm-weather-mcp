@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "weather-assistant": {
+      "command": "/ABSOLUTE/PATH/TO/ai-weather-mcp/.venv/bin/python",
+      "args": ["/ABSOLUTE/PATH/TO/ai-weather-mcp/server.py"]
+    }
+  }
+}

@@ -1,0 +1,11 @@
+# MCP server and local stdio client (including CLI utilities)
+mcp[cli]>=1.6,<2
+
+# Asynchronous requests to Open-Meteo
+httpx>=0.27,<1
+
+# OpenAI Responses API client for chat.py
+openai>=1.68,<3
+
+# Load local API credentials and model configuration from .env
+python-dotenv>=1,<2
